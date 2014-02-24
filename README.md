@@ -1,4 +1,4 @@
-ConfigModule
-============
+Config Design Pattern
+=====================
 
-Module to read any time of config file
+Module in which we can read any type of config file (ini, json, yml, etc)
