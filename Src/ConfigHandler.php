@@ -67,6 +67,12 @@ class ConfigHandler
     protected $sAdapterClass = 'Null';
 
     /**
+     * Indicate if the result has to be as an object
+     * @var string
+     */
+    protected $bAsObject = false;
+
+    /**
      * Methods
      */
     /**
@@ -116,7 +122,19 @@ class ConfigHandler
         /**
          * Get the config values
          */
-        return $this->oAdapter->getValues();
+        return $this->oAdapter->getValues($this->bAsObject);
+    }
+
+    /**
+     * It will set to get the data as an object
+     *
+     * @return object
+     */
+    public function getAsObject()
+    {
+        $this->bAsObject = true;
+
+        return $this;
     }
 
     /**

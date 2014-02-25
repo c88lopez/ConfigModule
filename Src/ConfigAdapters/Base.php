@@ -20,5 +20,5 @@ namespace Src\ConfigAdapters;
 
 interface Base 
 {
-    public function getValues();
+    public function getValues($bAsObject);
 } 

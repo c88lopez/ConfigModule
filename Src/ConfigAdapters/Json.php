@@ -46,11 +46,11 @@ class Json implements \Src\ConfigAdapters\Base
         $this->sFilePath = $sFilePath;
     }
 
-    public function getValues()
+    public function getValues($bAsObject)
     {
         $sFileContents = file_get_contents($this->sFilePath);
-        $aValues = json_decode($sFileContents, true);
+        $mValues = json_decode($sFileContents, !$bAsObject);
 
-        return $aValues;
+        return $mValues;
     }
 } 

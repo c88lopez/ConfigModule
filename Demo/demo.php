@@ -20,7 +20,7 @@ require_once realpath('..' . DIRECTORY_SEPARATOR . 'Bootstrap' . DIRECTORY_SEPAR
 $oCH = new \Src\ConfigHandler;
 
 $mValues = $oCH->setConfigFilePath(array(
-    'Config', 'test.json'
-))->getConfigValues();
+    'Config', 'test.ini'
+))->getAsObject()->getConfigValues();
 
 var_dump($mValues);
