@@ -16,7 +16,7 @@
 
     <logging>
         <!-- We need pcntl php extension installed -->
-        <!--<log type="coverage-html" target="./Report" />-->
+        <log type="coverage-html" target="./Report" />
     </logging>
 
 </phpunit>

@@ -15,12 +15,22 @@
  * @link       http://www.aLink.com
  */
 
+/**
+ * Cargo el autoload e instancio
+ */
 require_once realpath('..' . DIRECTORY_SEPARATOR . 'Bootstrap' . DIRECTORY_SEPARATOR . 'bootstrap.php');
-
 $oCH = new \Src\ConfigHandler;
 
-$mValues = $oCH->setConfigFilePath(array(
-    'Config', 'test.ini'
-))->getAsObject()->getConfigValues();
+/**
+ * Reviso que no ocurrieron excepciones
+ */
+try {
+    $mValues = $oCH->setConfigFilePath(array(
+        'Demo', 'Config', 'test.ini'
+    ))->getAsObject()->getConfigValues();
+} catch (\Exception $e) {
+    print_r($e->getMessage());
+    return false;
+}
 
 var_dump($mValues);
