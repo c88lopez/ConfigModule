@@ -133,6 +133,9 @@ class ConfigHandler
             case 'ini':
                 $this->sAdapterClass = 'Ini';
                 break;
+            case 'json':
+                $this->sAdapterClass = 'Json';
+                break;
         }
 
         /**
