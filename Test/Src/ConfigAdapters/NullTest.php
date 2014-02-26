@@ -15,19 +15,35 @@
  * @link       http://www.aLink.com
  */
 
-namespace Src\ConfigAdapters;
-
+namespace Test\Src\ConfigAdapters;
 
 class NullTest extends \PHPUnit_Framework_TestCase
 {
+    protected $oN;
+
     public function setUp()
     {
-
+        $this->oN = new \Src\ConfigAdapters\Null;
     }
 
-    public function testNullAdapter()
+    public function provider()
     {
-        $this->assertTrue(true);
+        return array(
+            array('1'),
+            array('false'),
+            array(true),
+            array(false),
+            array(new \stdClass()),
+            array(12),
+        );
+    }
+
+    /**
+     * @dataProvider provider
+     */
+    public function testNullAdapter($a)
+    {
+        $this->assertTrue($this->oN->getValues($a));
     }
 }
  

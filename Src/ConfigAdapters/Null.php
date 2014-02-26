@@ -41,8 +41,8 @@ class Null implements \Src\ConfigAdapters\Base
     /**
      * Methods
      */
-    public function getValues()
+    public function getValues($bAsObject)
     {
-        return __METHOD__;
+        return true;
     }
 } 

@@ -117,7 +117,7 @@ class ConfigHandler
         /**
          * Instantiate adapter according the file format
          */
-        $this->setAdapter();
+        $this->setConfigAdapter();
 
         /**
          * Get the config values
@@ -142,7 +142,7 @@ class ConfigHandler
      *
      * @return bool
      */
-    protected function setAdapter()
+    protected function setConfigAdapter()
     {
         /**
          * Strategy pattern to detect which class instantiate
@@ -160,14 +160,19 @@ class ConfigHandler
          * Giving shape to the class name to instantiate
          */
         $this->sAdapterClass = '\\' .$this->sAdaptersNamespace . '\\' . $this->sAdapterClass;
-        $this->oAdapter = new $this->sAdapterClass($this->sFilePath);
+        $oAdapter = new $this->sAdapterClass($this->sFilePath);
 
         /**
-         * Validate that the adapter meets which the correct interface
+         * Setting the adapter
          */
-        $this->validateObjectImplementation();
+        $this->setAdapter($oAdapter);
 
         return true;
+    }
+
+    protected function setAdapter(\Src\ConfigAdapters\Base $oAdapter)
+    {
+        $this->oAdapter = $oAdapter;
     }
 
     /**
@@ -187,19 +192,4 @@ class ConfigHandler
         return true;
     }
 
-    /**
-     * Checks that the class is being implementing by the correct inteface
-     *
-     * @throws \Exception
-     * @return bool
-     */
-    protected function validateObjectImplementation()
-    {
-        $aImplementations = class_implements($this->oAdapter);
-        if (!in_array($this->sAdaptersNamespace . '\\' . 'Base', $aImplementations)) {
-            throw new \Exception('The class ' . $this->sAdapterClass . ' is not being correctly implemented.');
-        }
-
-        return true;
-    }
-} 
+}

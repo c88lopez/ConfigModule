@@ -48,13 +48,16 @@ class Ini implements \Src\ConfigAdapters\Base
 
     public function getValues($bAsObject)
     {
-        $oValues = new \stdClass();
-        $aValues = parse_ini_file($this->sFilePath);
+        $aIniValues = parse_ini_file($this->sFilePath);
 
-        foreach ($aValues as $sIndex => $sValue) {
-            $oValues->$sIndex = $sValue;
+        $mValues = $aIniValues;
+        if ($bAsObject) {
+            $mValues = new \stdClass();
+            foreach ($aIniValues as $sIndex => $sValue) {
+                $mValues->$sIndex = $sValue;
+            }
         }
 
-        return $oValues;
+        return $mValues;
     }
 } 
