@@ -14,9 +14,15 @@
         </testsuite>
     </testsuites>
 
+    <filter>
+        <blacklist>
+            <file>../Bootstrap/autoload.php</file>
+        </blacklist>
+    </filter>
+
     <logging>
         <!-- We need pcntl php extension installed -->
-        <!--<log type="coverage-html" target="./Report" />-->
+        <log type="coverage-html" target="./Report" />
     </logging>
 
 </phpunit>
