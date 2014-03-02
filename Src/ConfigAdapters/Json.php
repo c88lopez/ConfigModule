@@ -31,7 +31,7 @@ namespace Src\ConfigAdapters;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class Json implements \Src\ConfigAdapters\Base
+class Json implements \Src\ConfigAdapters\IBase
 {
     /**
      * Properties

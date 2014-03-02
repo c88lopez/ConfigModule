@@ -31,7 +31,7 @@ namespace Src\ConfigAdapters;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class Ini implements \Src\ConfigAdapters\Base
+class Ini implements \Src\ConfigAdapters\IBase
 {
     /**
      * Properties

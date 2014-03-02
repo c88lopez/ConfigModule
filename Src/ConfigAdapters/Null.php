@@ -31,7 +31,7 @@ namespace Src\ConfigAdapters;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class Null implements \Src\ConfigAdapters\Base
+class Null implements \Src\ConfigAdapters\IBase
 {
     /**
      * Properties

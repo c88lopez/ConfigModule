@@ -170,7 +170,12 @@ class ConfigHandler
         return true;
     }
 
-    protected function setAdapter(\Src\ConfigAdapters\Base $oAdapter)
+    /**
+     * Setter of the adapter
+     *
+     * @param ConfigAdapters\IBase $oAdapter
+     */
+    protected function setAdapter(\Src\ConfigAdapters\IBase $oAdapter)
     {
         $this->oAdapter = $oAdapter;
     }
