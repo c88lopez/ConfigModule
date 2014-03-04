@@ -12,7 +12,10 @@ php:
   # aliased to a recent 5.5.x version
   - 5.5
 
-# omitting "script:" will default to phpunit
-script: 
+before_script:
+- pear channel-discover pear.phpunit.de
+- pear install --alldeps phpunit/PHP_Invoker
 - cd Test
-- phpunit
+
+# omitting "script:" will default to phpunit
+script: phpunit
