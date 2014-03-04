@@ -14,5 +14,5 @@ php:
 
 # omitting "script:" will default to phpunit
 script: 
-- cd Tests
+- cd Test
 - phpunit --coverage-text
