@@ -15,6 +15,7 @@ php:
 before_script:
 - pear channel-discover pear.phpunit.de
 - pear install --alldeps phpunit/PHP_Invoker
+- pear install phpunit/DbUnit
 - cd Test
 
 # omitting "script:" will default to phpunit
