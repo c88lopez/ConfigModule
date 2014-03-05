@@ -15,7 +15,8 @@
  * @link       http://www.aLink.com
  */
 
-require_once realpath(
-    dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR .
-    'Bootstrap'. DIRECTORY_SEPARATOR . 'bootstrap.php'
-);
+@todo Load composer autoload
+//require_once realpath(
+//    dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR .
+//    'Bootstrap'. DIRECTORY_SEPARATOR . 'bootstrap.php'
+//);

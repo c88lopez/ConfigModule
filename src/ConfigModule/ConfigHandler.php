@@ -15,8 +15,7 @@
  * @link       http://www.aLink.com
  */
 
-namespace Src;
-
+namespace src;
 
 /**
  * Short Class Description
@@ -58,7 +57,7 @@ class ConfigHandler
      * Namespace of the adapters
      * @var string
      */
-    protected $sAdaptersNamespace = 'Src\ConfigAdapters';
+    protected $sAdaptersNamespace = 'src\ConfigAdapters';
 
     /**
      * Name of the default adapter class
@@ -175,7 +174,7 @@ class ConfigHandler
      *
      * @param ConfigAdapters\IBase $oAdapter
      */
-    protected function setAdapter(\Src\ConfigAdapters\IBase $oAdapter)
+    protected function setAdapter(\src\ConfigAdapters\IBase $oAdapter)
     {
         $this->oAdapter = $oAdapter;
     }

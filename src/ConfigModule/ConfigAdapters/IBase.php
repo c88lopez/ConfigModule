@@ -15,8 +15,7 @@
  * @link       http://www.aLink.com
  */
 
-namespace Src\ConfigAdapters;
-
+namespace src\ConfigAdapters;
 
 interface IBase
 {

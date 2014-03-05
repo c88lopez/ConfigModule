@@ -15,8 +15,7 @@
  * @link       http://www.aLink.com
  */
 
-namespace Src\ConfigAdapters;
-
+namespace src\ConfigAdapters;
 
 /**
  * Short Class Description
@@ -31,18 +30,26 @@ namespace Src\ConfigAdapters;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class Null implements \Src\ConfigAdapters\IBase
+class Json implements \src\ConfigAdapters\IBase
 {
     /**
      * Properties
      */
-     
+    protected $sFilePath;
 
     /**
      * Methods
      */
+    public function __construct($sFilePath)
+    {
+        $this->sFilePath = $sFilePath;
+    }
+
     public function getValues($bAsObject)
     {
-        return true;
+        $sFileContents = file_get_contents($this->sFilePath);
+        $mValues = json_decode($sFileContents, !$bAsObject);
+
+        return $mValues;
     }
 } 
