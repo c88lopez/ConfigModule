@@ -15,7 +15,7 @@
  * @link       http://www.aLink.com
  */
 
-namespace src\ConfigAdapters;
+namespace ConfigModule\Adapters;
 
 /**
  * Short Class Description
@@ -30,33 +30,18 @@ namespace src\ConfigAdapters;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class Ini implements \src\ConfigAdapters\IBase
+class Null implements \ConfigModule\Adapters\IBase
 {
     /**
      * Properties
      */
-    protected $sFilePath;
+     
 
     /**
      * Methods
      */
-    public function __construct($sFilePath)
-    {
-        $this->sFilePath = $sFilePath;
-    }
-
     public function getValues($bAsObject)
     {
-        $aIniValues = parse_ini_file($this->sFilePath);
-
-        $mValues = $aIniValues;
-        if ($bAsObject) {
-            $mValues = new \stdClass();
-            foreach ($aIniValues as $sIndex => $sValue) {
-                $mValues->$sIndex = $sValue;
-            }
-        }
-
-        return $mValues;
+        return true;
     }
 } 

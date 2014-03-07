@@ -15,7 +15,7 @@
  * @link       http://www.aLink.com
  */
 
-namespace src\ConfigAdapters;
+namespace ConfigModule\Adapters;
 
 /**
  * Short Class Description
@@ -30,7 +30,7 @@ namespace src\ConfigAdapters;
  * @license    a License
  * @link       http://www.aLink.com
  */
-class Json implements \src\ConfigAdapters\IBase
+class Ini implements \ConfigModule\Adapters\IBase
 {
     /**
      * Properties
@@ -47,8 +47,15 @@ class Json implements \src\ConfigAdapters\IBase
 
     public function getValues($bAsObject)
     {
-        $sFileContents = file_get_contents($this->sFilePath);
-        $mValues = json_decode($sFileContents, !$bAsObject);
+        $aIniValues = parse_ini_file($this->sFilePath);
+
+        $mValues = $aIniValues;
+        if ($bAsObject) {
+            $mValues = new \stdClass();
+            foreach ($aIniValues as $sIndex => $sValue) {
+                $mValues->$sIndex = $sValue;
+            }
+        }
 
         return $mValues;
     }

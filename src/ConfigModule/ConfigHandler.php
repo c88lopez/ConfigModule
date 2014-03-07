@@ -15,7 +15,7 @@
  * @link       http://www.aLink.com
  */
 
-namespace src;
+namespace ConfigModule;
 
 /**
  * Short Class Description
@@ -57,7 +57,7 @@ class ConfigHandler
      * Namespace of the adapters
      * @var string
      */
-    protected $sAdaptersNamespace = 'src\ConfigAdapters';
+    protected $sAdaptersNamespace = 'ConfigModule\Adapters';
 
     /**
      * Name of the default adapter class
@@ -82,25 +82,24 @@ class ConfigHandler
     /**
      * Setter for aConfigFilePath
      *
-     * @param array $aConfigFilePath array which contains the path for the config file
+     * @param string $sFilePath Represents the path to the config file
      *
      * @throws \Exception
      * @return ConfigHandler
      */
-    public function setConfigFilePath(array $aConfigFilePath)
+    public function setConfigFilePath($sFilePath)
     {
         /**
-         * Gets the absolute path of the config file
+         * Verify the existence of the file
          */
-        $sFilePath = realpath('..' . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $aConfigFilePath));
-        if (!is_string($sFilePath)) {
+        if (!is_string(realpath($sFilePath))) {
             throw new \Exception('Config path does not exists');
         }
 
         /**
          * Gets the format of the config file and set the file path
          */
-        $this->setFileFormat($aConfigFilePath);
+        $this->setFileFormat($sFilePath);
         $this->sFilePath = $sFilePath;
 
         return $this;
@@ -144,16 +143,9 @@ class ConfigHandler
     protected function setConfigAdapter()
     {
         /**
-         * Strategy pattern to detect which class instantiate
+         * Specify the adapter to use
          */
-        switch ($this->sFileFormat) {
-            case 'ini':
-                $this->sAdapterClass = 'Ini';
-                break;
-            case 'json':
-                $this->sAdapterClass = 'Json';
-                break;
-        }
+        $this->sAdapterClass = ucfirst($this->sFileFormat);
 
         /**
          * Giving shape to the class name to instantiate
@@ -172,25 +164,27 @@ class ConfigHandler
     /**
      * Setter of the adapter
      *
-     * @param ConfigAdapters\IBase $oAdapter
-     */
-    protected function setAdapter(\src\ConfigAdapters\IBase $oAdapter)
-    {
-        $this->oAdapter = $oAdapter;
-    }
-
-    /**
-     * It will detect the file format
-     *
-     * @param array $aConfigFilePath Represents the path divided with slashes and the filename as its final element
+     * @param \ConfigModule\Adapters\IBase $oAdapter Adapter instance to use
      *
      * @return bool
      */
-    protected function setFileFormat($aConfigFilePath)
+    protected function setAdapter(\ConfigModule\Adapters\IBase $oAdapter)
     {
-        $sFileName = end($aConfigFilePath);
-        $aFileParts = explode('.', $sFileName);
+        $this->oAdapter = $oAdapter;
 
+        return true;
+    }
+
+    /**
+     * It will detect and set the file format
+     *
+     * @param string $sFilePath Represents the path of the file
+     *
+     * @return bool
+     */
+    protected function setFileFormat($sFilePath)
+    {
+        $aFileParts = explode('.', $sFilePath);
         $this->sFileFormat = end($aFileParts);
 
         return true;

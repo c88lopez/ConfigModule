@@ -18,16 +18,22 @@
 /**
  * Cargo el autoload e instancio
  */
-require_once realpath('..' . DIRECTORY_SEPARATOR . 'Bootstrap' . DIRECTORY_SEPARATOR . 'bootstrap.php');
-$oCH = new \Src\ConfigHandler;
+require_once realpath(
+    '..' . DIRECTORY_SEPARATOR .
+    '..' . DIRECTORY_SEPARATOR .
+    '..' . DIRECTORY_SEPARATOR .
+    'autoload.php'
+);
+
+$oCH = new \ConfigModule\ConfigHandler;
 
 /**
  * Reviso que no ocurrieron excepciones
  */
 try {
-    $mValues = $oCH->setConfigFilePath(array(
-        'Demo', 'Config', 'test.ini'
-    ))->getAsObject()->getConfigValues();
+    $mValues = $oCH->setConfigFilePath('Config/test.ini')
+        ->getAsObject()
+        ->getConfigValues();
 } catch (\Exception $e) {
     print_r($e->getMessage());
     return false;
