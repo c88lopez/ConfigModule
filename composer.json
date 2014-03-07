@@ -1,5 +1,5 @@
 {
-    "name": "config-handler",
+    "name": "config-handler/config-handler",
     "type": "library",
     "description": "Config Handler for PHP 5.3+",
     "keywords": ["config"],
