@@ -23,7 +23,7 @@ class NullTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->oN = new \Src\ConfigAdapters\Null;
+        $this->oN = new \ConfigModule\Adapters\Null;
     }
 
     public function provider()

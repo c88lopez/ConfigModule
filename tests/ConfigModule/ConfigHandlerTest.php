@@ -24,23 +24,23 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->iCH = new \Src\ConfigHandler;
+        $this->iCH = new \ConfigModule\ConfigHandler;
     }
 
     public function provider()
     {
         return array(
             array(
-                array('Demo', 'Config', 'test.ini'), false
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.ini', false
             ),
             array(
-                array('Demo', 'Config', 'test.json'), false
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.json', false
             ),
             array(
-                array('Demo', 'Config', 'test.ini'), true
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.ini', true
             ),
             array(
-                array('Demo', 'Config', 'test.json'), true
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.json', true
             ),
         );
     }
@@ -49,7 +49,7 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $oResult = $this->iCH->getAsObject();
 
-        $this->assertTrue($oResult instanceof \Src\ConfigHandler);
+        $this->assertTrue($oResult instanceof \ConfigModule\ConfigHandler);
     }
 
     /**
@@ -57,7 +57,7 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetConfigEmptyFilePath()
     {
-        $this->iCH->setConfigFilePath(array('qwe', 'asd.zxc'));
+        $this->iCH->setConfigFilePath('asd');
     }
 
     /**
@@ -71,7 +71,7 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
             $oResult->getAsObject();
         }
 
-        $this->assertTrue($oResult instanceof \Src\ConfigHandler);
+        $this->assertTrue($oResult instanceof \ConfigModule\ConfigHandler);
 
         $mData = $oResult->getConfigValues($b);
         if ($b) {

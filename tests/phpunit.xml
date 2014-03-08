@@ -14,6 +14,12 @@
         </testsuite>
     </testsuites>
 
+    <filter>
+        <blacklist>
+            <directory>../../../composer</directory>
+        </blacklist>
+    </filter>
+
     <logging>
         <!-- We need pcntl php extension installed -->
         <log type="coverage-html" target="./Report" />

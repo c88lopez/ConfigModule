@@ -25,10 +25,10 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $sJsonPath = realpath(
-            dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'Demo' . DS . 'Config' . DS . 'test.json'
+            dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'demo' . DS . 'Config' . DS . 'test.json'
         );
 
-        $this->oJ = new \Src\ConfigAdapters\Json($sJsonPath);
+        $this->oJ = new \ConfigModule\Adapters\Json($sJsonPath);
     }
 
     public function testGetValuesArray()
