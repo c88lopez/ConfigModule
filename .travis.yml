@@ -20,7 +20,6 @@ before_script:
 - pear install phpunit/DbUnit
 - pear install phpunit/PHPUnit_Selenium
 - pear install phpunit/PHPUnit_Story
-- cd tests
 
 # omitting "script:" will default to phpunit
-script: phpunit
+script: phpunit -c tests/phpunit.xml
