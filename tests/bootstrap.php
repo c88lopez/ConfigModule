@@ -17,8 +17,18 @@
 
 define('DS', DIRECTORY_SEPARATOR);
 
-require_once realpath(
-    '..' . DS .
-    '..' . DS .
-    'autoload.php'
-);
+/**
+ * Formas de correr los test
+ * 0 => clonado de git y luego 'composer install'
+ * 1 => instalado con composer
+ */
+if (0) {
+    require_once realpath(
+        '..' . DS .
+        '..' . DS .
+        'autoload.php'
+    );
+} else {
+    $loader = require __DIR__ . "/../vendor/autoload.php";
+    $loader->addPsr4('ConfigModule\\', __DIR__.'/ConfigModule');
+}
