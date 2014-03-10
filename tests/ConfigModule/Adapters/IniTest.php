@@ -30,7 +30,7 @@ class IniTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $sIniPath = realpath(
-            dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'demo' . DS . 'Config' . DS . 'test.ini'
+            dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'demo' . DS . 'config' . DS . 'test.ini'
         );
 
         $this->oI = new \ConfigModule\Adapters\Ini($sIniPath);

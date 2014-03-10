@@ -31,16 +31,16 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.ini', false
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'config' . DS . 'test.ini', false
             ),
             array(
-                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.json', false
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'config' . DS . 'test.json', false
             ),
             array(
-                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.ini', true
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'config' . DS . 'test.ini', true
             ),
             array(
-                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'Config' . DS . 'test.json', true
+                dirname(dirname(dirname(__FILE__))) . DS . 'demo' . DS . 'config' . DS . 'test.json', true
             ),
         );
     }

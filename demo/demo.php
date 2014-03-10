@@ -31,7 +31,7 @@ $oCH = new \ConfigModule\ConfigHandler;
  * Reviso que no ocurrieron excepciones
  */
 try {
-    $mValues = $oCH->setConfigFilePath('Config/test.ini')
+    $mValues = $oCH->setConfigFilePath('config/test.ini')
         ->getAsObject()
         ->getConfigValues();
 } catch (\Exception $e) {
