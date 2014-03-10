@@ -17,6 +17,8 @@
 
 namespace ConfigModule;
 
+use \ConfigModule\Adapters\IBase;
+
 /**
  * Short Class Description
  * 
@@ -151,6 +153,7 @@ class ConfigHandler
          * Giving shape to the class name to instantiate
          */
         $this->sAdapterClass = '\\' .$this->sAdaptersNamespace . '\\' . $this->sAdapterClass;
+
         $oAdapter = new $this->sAdapterClass($this->sFilePath);
 
         /**
@@ -168,7 +171,7 @@ class ConfigHandler
      *
      * @return bool
      */
-    protected function setAdapter(\ConfigModule\Adapters\IBase $oAdapter)
+    protected function setAdapter(IBase $oAdapter)
     {
         $this->oAdapter = $oAdapter;
 
@@ -184,8 +187,7 @@ class ConfigHandler
      */
     protected function setFileFormat($sFilePath)
     {
-        $aFileParts = explode('.', $sFilePath);
-        $this->sFileFormat = end($aFileParts);
+        $this->sFileFormat = pathinfo($sFilePath, PATHINFO_EXTENSION);
 
         return true;
     }
