@@ -30,7 +30,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $sJsonPath = realpath(
-            dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'demo' . DS . 'Config' . DS . 'test.json'
+            dirname(dirname(dirname(dirname(__FILE__)))) . DS . 'demo' . DS . 'config' . DS . 'test.json'
         );
 
         $this->oJ = new \ConfigModule\Adapters\Json($sJsonPath);
