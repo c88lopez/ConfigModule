@@ -153,7 +153,6 @@ class ConfigHandler
          * Giving shape to the class name to instantiate
          */
         $this->sAdapterClass = '\\' .$this->sAdaptersNamespace . '\\' . $this->sAdapterClass;
-
         $oAdapter = new $this->sAdapterClass($this->sFilePath);
 
         /**
