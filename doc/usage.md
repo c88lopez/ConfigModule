@@ -12,7 +12,6 @@ Composer:
 
 "config-handler/config-handler": "v1.0.1"
 
-
 Example
 -------
 
