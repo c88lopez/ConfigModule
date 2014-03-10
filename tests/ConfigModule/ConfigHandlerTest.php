@@ -45,6 +45,9 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Testing configuration
+     */
     public function testGetAsObject()
     {
         $oResult = $this->iCH->getAsObject();
@@ -53,6 +56,7 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Testing exception on non-existent file
      * @expectedException \Exception
      */
     public function testSetConfigEmptyFilePath()
@@ -61,6 +65,7 @@ class ConfigHandlerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Testing a functional example
      * @dataProvider provider
      */
     public function testSetConfigFilePathAndGetValues($a, $b)

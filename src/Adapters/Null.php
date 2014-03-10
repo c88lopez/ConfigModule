@@ -42,6 +42,6 @@ class Null implements \ConfigModule\Adapters\IBase
      */
     public function getValues($bAsObject)
     {
-        return true;
+        return array();
     }
 } 

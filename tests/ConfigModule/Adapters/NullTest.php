@@ -17,6 +17,12 @@
 
 namespace Test\Src\ConfigAdapters;
 
+/**
+ * Class NullTest
+ * Test the Null adapter
+ *
+ * @package Test\Src\ConfigAdapters
+ */
 class NullTest extends \PHPUnit_Framework_TestCase
 {
     protected $oN;
@@ -39,11 +45,13 @@ class NullTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Testing null object returning an empty array
      * @dataProvider provider
      */
     public function testNullAdapter($a)
     {
-        $this->assertTrue($this->oN->getValues($a));
+        $aResult = $this->oN->getValues($a);
+        $this->assertTrue(empty($aResult));
     }
 }
  

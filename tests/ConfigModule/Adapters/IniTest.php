@@ -17,7 +17,12 @@
 
 namespace Test\Src\ConfigAdapters;
 
-
+/**
+ * Class IniTest
+ * Test the Ini adapter
+ *
+ * @package Test\Src\ConfigAdapters
+ */
 class IniTest extends \PHPUnit_Framework_TestCase
 {
     protected $oI;
@@ -31,6 +36,9 @@ class IniTest extends \PHPUnit_Framework_TestCase
         $this->oI = new \ConfigModule\Adapters\Ini($sIniPath);
     }
 
+    /**
+     * Testing get the values as array
+     */
     public function testGetValuesArray()
     {
         $aValues = $this->oI->getValues(false);
@@ -38,6 +46,9 @@ class IniTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue('ini' == $aValues['file']);
     }
 
+    /**
+     * Testing get the values as object
+     */
     public function testGetValuesObject()
     {
         $oValues = $this->oI->getValues(true);
