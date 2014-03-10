@@ -17,7 +17,12 @@
 
 namespace Test\Src\ConfigAdapters;
 
-
+/**
+ * Class JsonTest
+ * Test the Json adapter
+ *
+ * @package Test\Src\ConfigAdapters
+ */
 class JsonTest extends \PHPUnit_Framework_TestCase
 {
     protected $oJ;
@@ -31,6 +36,9 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         $this->oJ = new \ConfigModule\Adapters\Json($sJsonPath);
     }
 
+    /**
+     * Testing get the values as array
+     */
     public function testGetValuesArray()
     {
         $aValues = $this->oJ->getValues(false);
@@ -38,6 +46,9 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue('json' == $aValues['file']);
     }
 
+    /**
+     * Testing get the values as object
+     */
     public function testGetValuesObject()
     {
         $oValues = $this->oJ->getValues(true);
